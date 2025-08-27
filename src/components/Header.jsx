@@ -1,4 +1,4 @@
-import img from '../assets/Cachorro.svg'
+import img from "../assets/CachorroTela.svg";
 
 export default function Header() {
   return (
