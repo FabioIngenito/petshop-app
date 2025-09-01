@@ -1,6 +1,11 @@
+:root {
+  --cor-seta: #fd7e14;
+  --branco: white;
+}
+
 .category-card {
   border-radius: 12px;
-  width: 280px;
+  max-width: 280px;
   height: 350px;
   margin: 10px;
   /* background-color: aqua; */
@@ -14,7 +19,35 @@
 }
 
 .category-image {
-  height: 90%;
+  height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--cor-fundo2);
+  border-radius: 0 0 20px 20px;
+}
+
+.arrow-icon {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--branco);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cor-seta);
+}
+
+.arrow-icon:hover {
+  background-color: var(--cor-seta);
+  color: var(--branco);
+  transition: 0.3s;
 }

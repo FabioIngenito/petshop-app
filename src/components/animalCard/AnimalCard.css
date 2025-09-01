@@ -1,0 +1,39 @@
+:root {
+  --cor-fundo: #333;
+}
+
+.animal-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 5rem;
+}
+
+.animal-card:hover {
+  transform: scale(1.05);
+}
+
+.animal-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  background-color: var(--cor-fundo);
+}
+
+.animal-image {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.animal-name {
+  margin-top: 15px;
+  font-weight: bold;
+  color: var(--cor-fundo);
+}
