@@ -3,10 +3,12 @@
 //import viteLogo from '/vite.svg'
 //import './App.css'
 import AnimalCard from "./components/animalCard/AnimalCard";
+import AnimalCarousel from "./components/animalCarousel/AnimalCarousel";
 import Carousel from "./components/carousel/Carousel";
 import CategoryCard from "./components/categoryCard/categoryCard";
 import CategoryCarousel from "./components/categoryCarousel/CategoryCarousel";
 import Navbar from "./components/navbar/Navbar";
+import Hero from "./components/hero/Hero";
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -22,7 +24,6 @@ function App() {
 
   return (
     <>
-      {/* <Navbar /> */}
       {/*       
       <Carousel title="Carrosel 1" />
       <Carousel title="Carrosel 2" /> 
@@ -44,12 +45,18 @@ function App() {
       */}
 
       {/* <CategoryCarousel /> */}
-      <AnimalCard
+
+      {/* <AnimalCard
         animal={{
           name: "Rex",
           image: "./src/assets/dog.png",
         }}
-      />
+      /> */}
+
+      {/* <AnimalCarousel /> */}
+
+      <Navbar />
+      <Hero title="Bem-vindo ao pet shop do 'Fulano'!" />
     </>
   );
 }
