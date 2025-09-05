@@ -1,0 +1,80 @@
+:root {
+  --cor-orange: #f90;
+  --cor-image-background: #f0f0f0;
+  --cor-image-background-hover: #e0e0e0;
+  --cor-branco: #fff;
+  --cor-favorite-button-background: #fff;
+  --cor-favorite-button-border: #ddd;
+  --cor-product-name: #333;
+}
+
+.product-card {
+  background-color: var(--cor-branco);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 280px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.product-image-container {
+  background-color: var(--cor-image-background);
+  position: relative;
+  padding: 20px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* SASS - Descendant Selectors (&) para a pseudo-classe ":hover"  */
+  &:hover {
+    background-color: var(--cor-image-background-hover);
+  }
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.favorite-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--cor-favorite-button-background);
+  border: 1px solid var(--cor-favorite-button-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--cor-orange);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: var(--cor-orange);
+    color: var(--cor-branco);
+  }
+}
+
+.product-info {
+  padding: 15px 20px;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--cor-product-name);
+  margin: 0;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--cor-orange);
+  margin: 5px 0 0;
+}

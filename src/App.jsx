@@ -57,10 +57,17 @@ function App() {
 
       {/* <AnimalCarousel /> */}
 
+      {/* *** Primeira Página **** */}
+      {/* 
       <Navbar />
       <Hero title="Bem-vindo ao pet shop do 'Fulano'!" />
+      <CategoryCarousel />
       <FeaturedProducts />
-      <Footer />
+      <AnimalCarousel />
+      <Footer /> 
+      */}
+
+      {/* *** Segunda Página **** */}
     </>
   );
 }

@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap");
+
+:root {
+  --cor-background: #f8f9fa;
+  --cor-badge: #f90;
+  --cor-h1: #333;
+  --cor-p: #666;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: "Lavishly Yours", cursive;
+}
