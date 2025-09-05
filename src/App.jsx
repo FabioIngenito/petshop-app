@@ -9,6 +9,8 @@ import CategoryCard from "./components/categoryCard/categoryCard";
 import CategoryCarousel from "./components/categoryCarousel/CategoryCarousel";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
+import Footer from "./components/footer/Footer";
+import FeaturedProducts from "./components/featuredProducts/FeaturedProducts";
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -57,6 +59,8 @@ function App() {
 
       <Navbar />
       <Hero title="Bem-vindo ao pet shop do 'Fulano'!" />
+      <FeaturedProducts />
+      <Footer />
     </>
   );
 }
