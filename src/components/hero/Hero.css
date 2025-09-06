@@ -1,3 +1,10 @@
+:root {
+  --cor-background: #f8f9fa;
+  --cor-badge: #f90;
+  --cor-h1: #333;
+  --cor-p: #666;
+}
+
 .hero {
   display: flex;
   justify-content: space-between;

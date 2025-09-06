@@ -60,7 +60,11 @@ function App() {
       {/* *** Primeira Página **** */}
       {/* 
       <Navbar />
-      <Hero title="Bem-vindo ao pet shop do 'Fulano'!" />
+      */}
+
+      {/* <Hero title="Bem-vindo ao pet shop do 'Fulano'!" /> */}
+
+      {/* 
       <CategoryCarousel />
       <FeaturedProducts />
       <AnimalCarousel />
