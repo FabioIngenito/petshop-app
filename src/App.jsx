@@ -11,6 +11,8 @@ import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import Footer from "./components/footer/Footer";
 import FeaturedProducts from "./components/featuredProducts/FeaturedProducts";
+import ShopSidebar from "./components/shopSidebar/ShopSidebar";
+import ProductGrid from "./components/productGrid/ProductGrid";
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -72,6 +74,7 @@ function App() {
       */}
 
       {/* *** Segunda Página **** */}
+      <ProductGrid />
     </>
   );
 }

@@ -38,8 +38,15 @@ import { useState } from "react";
 //   );
 // }
 
-const ShopSidebar = ({ listaDeCategorias }) => {
+//const ShopSidebar = () => {
+const ShopSidebar = ({ listaDeCategorias, listaDeMarcas }) => {
   const [priceRange, setPriceRange] = useState([0, 500]);
+
+  const aplicarFiltroPreco = () => {
+    console.log(
+      `Filtro de preço aplicado: R$${priceRange[0]} - R$${priceRange[1]}`
+    );
+  };
 
   return (
     <aside className="sidebar">
@@ -47,9 +54,9 @@ const ShopSidebar = ({ listaDeCategorias }) => {
         <h4>Filtrar por categoria</h4>
         <ul>
           {listaDeCategorias.map((categoria) => (
-            <li key={categoria.nome} className="check-box-item">
+            <li key={categoria.nome} className="checkbox-item">
               <input type="checkbox" id={categoria.nome} />
-              <span>{categoria.nome}</span>
+              <label>{categoria.nome}</label>
               <span className="qtd-categoria">{categoria.qtd}</span>
             </li>
           ))}
@@ -66,6 +73,28 @@ const ShopSidebar = ({ listaDeCategorias }) => {
             defaultValue={priceRange}
             onChange={(newRange) => setPriceRange(newRange)}
           />
+
+          <div className="price-info">
+            <span>
+              Preço: R${priceRange[0]} - R${priceRange[1]}
+            </span>
+            <button onClick={() => aplicarFiltroPreco(priceRange)}>
+              Aplicar
+            </button>
+          </div>
+        </div>
+
+        <div className="filter-group">
+          <h4>Filtrar por Marca</h4>
+          <ul>
+            {listaDeMarcas.map((marca) => (
+              <li key={marca.nome} className="checkbox-item">
+                <input type="checkbox" id={marca.nome} />
+                <label htmlFor={marca.nome}>{marca.nome}</label>
+                <span className="qtd-categoria">{marca.qtd}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </aside>
