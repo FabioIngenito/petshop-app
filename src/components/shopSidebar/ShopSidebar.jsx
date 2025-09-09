@@ -1,6 +1,7 @@
-import "./ShopSidebar.css";
-import Slider from "rc-slider";
 import { useState } from "react";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+import "./ShopSidebar.css";
 
 // export function ContadorDeCliques() {
 //   const [cliques, setCliques] = useState(0);
@@ -38,7 +39,6 @@ import { useState } from "react";
 //   );
 // }
 
-//const ShopSidebar = () => {
 const ShopSidebar = ({ listaDeCategorias, listaDeMarcas }) => {
   const [priceRange, setPriceRange] = useState([0, 500]);
 
@@ -72,6 +72,14 @@ const ShopSidebar = ({ listaDeCategorias, listaDeMarcas }) => {
             max={500}
             defaultValue={priceRange}
             onChange={(newRange) => setPriceRange(newRange)}
+            styles={{
+              track: { backgroundColor: "orange" },
+              rail: { backgroundColor: "#ffd8a6" },
+              handle: {
+                borderColor: "orange",
+                backgroundColor: "white",
+              },
+            }}
           />
 
           <div className="price-info">

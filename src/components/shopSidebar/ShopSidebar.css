@@ -6,7 +6,7 @@
 
 .sidebar {
   flex: 1;
-  max-width: 208px;
+  max-width: 280px;
 }
 
 .filter-group {
@@ -29,9 +29,9 @@
     margin-bottom: 10px;
     color: var(--cor-texto);
 
-    &:hover {
+    /* &:hover {
       text-decoration: underline;
-    }
+    } */
   }
 }
 
@@ -52,9 +52,10 @@
   border-radius: 12px;
   position: absolute;
   right: 0;
+  /*
 }
 
-.price-filter-container {
+ .price-filter-container {
   width: 300px;
 }
 
@@ -73,7 +74,7 @@
   &:focus,
   &:active {
     box-shadow: 0 0 0 5px rgba(255, 140, 56, 0.2);
-  }
+  } */
 }
 
 .price-info {
@@ -90,8 +91,8 @@
     cursor: pointer;
     padding: 10px 20px;
 
-    &:hover {
+    /* &:hover {
       background-color: var(--cor-categoria);
-    }
+    } */
   }
 }
