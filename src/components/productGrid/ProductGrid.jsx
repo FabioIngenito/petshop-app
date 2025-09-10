@@ -1,39 +1,40 @@
 import React from "react";
 import ProductCard from "../productCard/ProductCard";
 import ShopSidebar from "../shopSidebar/ShopSidebar";
+import Pagination from "../pagination/Pagination";
 import "./ProductGrid.css";
 
 const todosProdutos = [
-  { id: 1, nome: "Camiseta", preco: 29.99 },
-  { id: 2, nome: "Calça Jeans", preco: 79.99 },
-  { id: 3, nome: "Tênis", preco: 120.0 },
-  { id: 4, nome: "Boné", preco: 19.99 },
-  { id: 5, nome: "Mochila", preco: 150.5 },
-  { id: 6, nome: "Relógio", preco: 250.0 },
-  { id: 7, nome: "Óculos de Sol", preco: 180.75 },
-  { id: 8, nome: "Jaqueta", preco: 300.0 },
-  { id: 9, nome: "Meias", preco: 12.5 },
-  { id: 10, nome: "Tênis de Corrida", preco: 130.0 },
-  { id: 11, nome: "Camisa Social", preco: 45.0 },
-  { id: 12, nome: "Cinto", preco: 35.0 },
-  { id: 13, nome: "Carteira", preco: 60.0 },
-  { id: 14, nome: "Luvas", preco: 25.0 },
-  { id: 15, nome: "Gorro", preco: 20.0 },
-  { id: 16, nome: "Blusa de Frio", preco: 100.0 },
-  { id: 17, nome: "Shorts", preco: 40.0 },
-  { id: 18, nome: "Chinelo", preco: 15.0 },
-  { id: 19, nome: "Sandália", preco: 50.0 },
-  { id: 20, nome: "Bolsa", preco: 200.0 },
-  { id: 21, nome: "Pulseira", preco: 45.5 },
-  { id: 22, nome: "Brinco", preco: 60.0 },
-  { id: 23, nome: "Colar", preco: 80.0 },
-  { id: 24, nome: "Camiseta Regata", preco: 25.0 },
-  { id: 25, nome: "Calça Legging", preco: 70.0 },
-  { id: 26, nome: "Jaqueta Corta Vento", preco: 150.0 },
-  { id: 27, nome: "Moletom", preco: 90.0 },
-  { id: 28, nome: "Tênis Casual", preco: 110.0 },
-  { id: 29, nome: "Relógio Digital", preco: 300.0 },
-  { id: 30, nome: "Carteira Masculina", preco: 55.0 },
+  { id: 1, name: "Camiseta", price: 29.99 },
+  { id: 2, name: "Calça Jeans", price: 79.99 },
+  { id: 3, name: "Tênis", price: 120.0 },
+  { id: 4, name: "Boné", price: 19.99 },
+  { id: 5, name: "Mochila", price: 150.5 },
+  { id: 6, name: "Relógio", price: 250.0 },
+  { id: 7, name: "Óculos de Sol", price: 180.75 },
+  { id: 8, name: "Jaqueta", price: 300.0 },
+  { id: 9, name: "Meias", price: 12.5 },
+  { id: 10, name: "Tênis de Corrida", price: 130.0 },
+  { id: 11, name: "Camisa Social", price: 45.0 },
+  { id: 12, name: "Cinto", price: 35.0 },
+  { id: 13, name: "Carteira", price: 60.0 },
+  { id: 14, name: "Luvas", price: 25.0 },
+  { id: 15, name: "Gorro", price: 20.0 },
+  { id: 16, name: "Blusa de Frio", price: 100.0 },
+  { id: 17, name: "Shorts", price: 40.0 },
+  { id: 18, name: "Chinelo", price: 15.0 },
+  { id: 19, name: "Sandália", price: 50.0 },
+  { id: 20, name: "Bolsa", price: 200.0 },
+  { id: 21, name: "Pulseira", price: 45.5 },
+  { id: 22, name: "Brinco", price: 60.0 },
+  { id: 23, name: "Colar", price: 80.0 },
+  { id: 24, name: "Camiseta Regata", price: 25.0 },
+  { id: 25, name: "Calça Legging", price: 70.0 },
+  { id: 26, name: "Jaqueta Corta Vento", price: 150.0 },
+  { id: 27, name: "Moletom", price: 90.0 },
+  { id: 28, name: "Tênis Casual", price: 110.0 },
+  { id: 29, name: "Relógio Digital", price: 300.0 },
+  { id: 30, name: "Carteira Masculina", price: 55.0 },
 ];
 
 const listaDeCategorias = [
@@ -89,6 +90,7 @@ const ProductGrid = () => {
             </select>
           </div>
         </header>
+
         <div className="products-grid">
           {produtosAtuais.length === 0 ? (
             <p>Nenhum produto encontrado.</p>
@@ -98,6 +100,12 @@ const ProductGrid = () => {
             ))
           )}
         </div>
+
+        <Pagination
+          totalDePaginas={totalDePaginas}
+          paginaAtual={paginaAtual}
+          mudarPaginaAtual={mudarPaginaAtual}
+        />
       </main>
     </div>
   );

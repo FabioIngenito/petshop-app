@@ -1,18 +1,21 @@
 //import { useState } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
-//import './App.css'
-import AnimalCard from "./components/animalCard/AnimalCard";
-import AnimalCarousel from "./components/animalCarousel/AnimalCarousel";
-import Carousel from "./components/carousel/Carousel";
-import CategoryCard from "./components/categoryCard/categoryCard";
-import CategoryCarousel from "./components/categoryCarousel/CategoryCarousel";
-import Navbar from "./components/navbar/Navbar";
-import Hero from "./components/hero/Hero";
-import Footer from "./components/footer/Footer";
-import FeaturedProducts from "./components/featuredProducts/FeaturedProducts";
-import ShopSidebar from "./components/shopSidebar/ShopSidebar";
-import ProductGrid from "./components/productGrid/ProductGrid";
+// import "./App.css";
+// import AnimalCard from "./components/animalCard/AnimalCard";
+// import AnimalCarousel from "./components/animalCarousel/AnimalCarousel";
+// import Carousel from "./components/carousel/Carousel";
+// import CategoryCard from "./components/categoryCard/categoryCard";
+// import CategoryCarousel from "./components/categoryCarousel/CategoryCarousel";
+// import Navbar from "./components/navbar/Navbar";
+// import Hero from "./components/hero/Hero";
+// import Footer from "./components/footer/Footer";
+// import FeaturedProducts from "./components/featuredProducts/FeaturedProducts";
+// import ShopSidebar from "./components/shopSidebar/ShopSidebar";
+//import ProductGrid from "./components/productGrid/ProductGrid";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Comprar from "./pages/Comprar";
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -74,7 +77,12 @@ function App() {
       */}
 
       {/* *** Segunda Página **** */}
-      <ProductGrid />
+      {/* <ProductGrid /> */}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/comprar" element={<Comprar />} />
+      </Routes>
     </>
   );
 }
