@@ -1,8 +1,9 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "../productCard/ProductCard";
 import ShopSidebar from "../shopSidebar/ShopSidebar";
 import Pagination from "../pagination/Pagination";
 import "./ProductGrid.css";
+import axios from "axios";
 
 const todosProdutos = [
   { id: 1, name: "Camiseta", price: 29.99 },
@@ -37,21 +38,101 @@ const todosProdutos = [
   { id: 30, name: "Carteira Masculina", price: 55.0 },
 ];
 
-const listaDeCategorias = [
-  { nome: "Brinquedos", qtd: 32 },
-  { nome: "Roupas", qtd: 30 },
-  { nome: "Comidas", qtd: 100 },
-];
+// const listaDeCategorias = [
+//   { nome: "Brinquedos", qtd: 32 },
+//   { nome: "Roupas", qtd: 30 },
+//   { nome: "Comidas", qtd: 100 },
+// ];
 
-const listaDeMarcas = [
-  { nome: "Royal Canin", qtd: 30 },
-  { nome: "K9 Spirit", qtd: 20 },
-  { nome: "Premier", qtd: 10 },
-];
+// const listaDeMarcas = [
+//   { nome: "Royal Canin", qtd: 30 },
+//   { nome: "K9 Spirit", qtd: 20 },
+//   { nome: "Premier", qtd: 10 },
+// ];
 
 const ProductGrid = () => {
-  const [paginaAtual, setPaginaAtual] = React.useState(1);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [pets, setPets] = useState([]);
+  const maximoDeAnimais = 50;
   const produtosPorPagina = 6;
+
+  // CAMINHOS DA API PETFINDER:
+  // https://www.petfinder.com/developers/signup/
+  // https://www.petfinder.com/developers/v2/docs/
+
+  //const API_KEY = "SUA_CHAVE_API_AQUI";
+  const API_KEY = "oQK8OaaBIZwDZbqqXfi1fBYV8g14CqLixdrEupnLc299jaEktm";
+  //const API_SECRET = "SUA_CHAVE_API_SECRET_AQUI";
+  const API_SECRET = "oQK8OaaBIZwDZbqqXfi1fBYV8g14CqLixdrEupnLc299jaEktm";
+
+  const obterToken = async () => {
+    const response = await axios.post(
+      "https://api.petfinder.com/v2/oauth2/token",
+      `grant_type=client_credentials&
+        client_id=${API_KEY}&
+        client_secret=${API_SECRET}`,
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    return response.data.access_token;
+  };
+
+  const buscarPets = async (token, pagina, limite) => {
+    const response = await axios.get(
+      `/pf-api/animals?
+      page=${pagina}&
+      limit=${limite}&
+      type=Dog`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  };
+
+  useEffect(() => {
+    const fetchTokenEPets = async () => {
+      if (loading) return;
+      setLoading(true);
+      try {
+        const meuToken = await obterToken();
+        const data = await buscarPets(meuToken, paginaAtual, produtosPorPagina);
+
+        const petsComImagem = data.animals.filter(
+          (pet) =>
+            pet.primary_photo_cropped || (pet.photos && pet.photos.length > 0)
+        );
+
+        // Formatar os dados para o formato esperado pelo cartão de Pets
+        const petsFormatados = petsComImagem.map((cachorro) => ({
+          id: cachorro.id,
+          name: cachorro.name,
+          price: cachorro.breeds.primary, // Usando a raça como preço apenas para demonstração
+          image:
+            cachorro.primary_photo_cropped?.medium ||
+            (cachorro.photos && cachorro.photos[0].medium),
+        }));
+
+        setPets(petsFormatados);
+
+        const totalConsiderado = Math.min(
+          maximoDeAnimais,
+          data.pagination.total_count
+        );
+      } catch (error) {
+        console.error("Erro ao buscar pets:", error);
+      }
+    };
+  });
+
   // O ceil serve para arredondar para cima
   // todosProdutos.length é o comprimento da lista de produtos
   const totalDePaginas = Math.ceil(todosProdutos.length / produtosPorPagina);
