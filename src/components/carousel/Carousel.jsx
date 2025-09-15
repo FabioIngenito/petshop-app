@@ -31,7 +31,9 @@ const Carousel = ({ title, items, RenderComponent }) => {
 
       <div className="cards-container" ref={carouselRef}>
         {items && RenderComponent ? (
-          items.map((componente) => <RenderComponent item={componente} />)
+          items.map((componente) => (
+            <RenderComponent key={componente.id} item={componente} />
+          ))
         ) : (
           <div className="card">Nenhum item para exibir</div>
         )}
