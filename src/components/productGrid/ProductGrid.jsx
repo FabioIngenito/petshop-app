@@ -62,16 +62,8 @@ const ProductGrid = () => {
   // https://www.petfinder.com/developers/signup/
   // https://www.petfinder.com/developers/v2/docs/
 
-  //const API_KEY = "SUA_CHAVE_API_AQUI";
-  // EXEMPLO DE API KEY (NÃO USE ESSA POIS ESTÁ VENCIDA, CRIE A SUA):
-  //const API_KEY = "oQK8OaaBIZwDZbqqXfi1fBYV8g14CqLixdrEupnLc299jaEktm";
-
-  //const API_SECRET = "SUA_CHAVE_API_SECRET_AQUI";
-  // EXEMPLO DE API SECRET (NÃO USE ESSA POIS ESTÁ VENCIDA, CRIE A SUA):
-  //const API_SECRET = "oQK8OaaBIZwDZbqqXfi1fBYV8g14CqLixdrEupnLc299jaEktm";
-
-  const API_KEY = "Axm8E8sDRGhlB5Cs8oIP1kAXHloES3rXeu9LSBJmb98S9Fl3zC";
-  const API_SECRET = "s5WnxXNllYXzByJti1QH6VgbNDdX5DEyRcJT9R11";
+  const API_KEY = "SUA_CHAVE_API_AQUI";
+  const API_SECRET = "SUA_CHAVE_API_SECRET_AQUI";
 
   const obterToken = async () => {
     const response = await axios.post(
